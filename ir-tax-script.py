@@ -1,8 +1,9 @@
 # Imperium Romanum tax calc
 
-def calculate():
+def calculate(salary = 0, manual = False):
     tax = 0
-    salary = float(input("How much money do you earn in dollars? "))
+    if manual:
+        salary = float(input("How much money do you earn in dollars? "))
     takehome = salary
 
     if takehome >= 15000:
@@ -30,7 +31,7 @@ def calculate():
 def manualMode():
     loop = True
     while loop:
-        res = calculate()
+        res = calculate(manual = True)
         print("You take home: $"+str(res[0]), "per annum")
         print("You pay in tax: $"+str(res[1]), "per annum")
         print()
