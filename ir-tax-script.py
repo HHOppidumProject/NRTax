@@ -1,4 +1,4 @@
-# Nova Roma tax calc
+# Imperium Romanum tax calc
 
 def calculate():
     tax = 0
@@ -26,14 +26,18 @@ def calculate():
 
     return (round(takehome, 2), round(tax, 2))
 
+
 def manualMode():
-    while input("Would you like to quit? [y/n] ").lower() != "y":
+    loop = True
+    while loop:
         res = calculate()
         print("You take home: $"+str(res[0]), "per annum")
         print("You pay in tax: $"+str(res[1]), "per annum")
         print()
         print("You take home: $"+str(round(res[0]/12 , 2)), "per month")
-        print("You pay $"+str(round(res[1]/12, 2)), "in taxes per month")    
+        print("You pay $"+str(round(res[1]/12, 2)), "in taxes per month")
+        loop = input("Would you like to quit? [y/n] ").lower() != "y"
+
 
 if __name__ == "__main__":
     manualMode()
